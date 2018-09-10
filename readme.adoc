@@ -1,0 +1,32 @@
+:toc:
+:toclevels: 3
+:sectnums:
+
+# 第6回 応用情報技術者講義 データベース実践
+
+筆者環境::
+- Windows 10 Home
+- PostgreSQL 10.4
+- Visual Studio 2017 Community
+
+// TODO 挨拶の追加と、レクチャーの範囲を明示
+
+- データベースを作成
+- テーブルを複数定義
+- 各テーブルを関連付け
+- データの入力（マスタ、トランザクション）
+- 
+
+## データベースを作ってみよう
+
+### データベースの作成
+
+```SQL
+CREATE DATABASE sample
+```
+
+### テーブルの作成
+
+```SQL
+CREATE TABLE user;
+```
