@@ -17,16 +17,20 @@
 - データの入力（マスタ、トランザクション）
 - 
 
-## データベースを作ってみよう
+## 何はともあれ、データベースを作ってみよう
 
 ### データベースの作成
 
 ```SQL
-CREATE DATABASE sample
+CREATE DATABASE sample;
 ```
 
 ### テーブルの作成
 
 ```SQL
-CREATE TABLE user;
+CREATE TABLE workers
+(worker_id char(5) not null,
+worker_name varchar(50) not null,
+worker_work_from date,
+primary key (worker_id));
 ```
