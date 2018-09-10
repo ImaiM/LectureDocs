@@ -1,8 +1,8 @@
 :toc:
-:toclevels: 3
+:toclevels: 2
 :sectnums:
 
-# 第6回 応用情報技術者講義 データベース実践
+= 第6回 応用情報技術者講義 データベース実践
 
 筆者環境::
 - Windows 10 Home
@@ -17,20 +17,27 @@
 - データの入力（マスタ、トランザクション）
 - 
 
-## 何はともあれ、データベースを作ってみよう
+== 何はともあれ、データベースを作ってみよう
 
-### データベースの作成
+=== データベースの作成
 
 ```SQL
 CREATE DATABASE sample;
 ```
 
-### テーブルの作成
+=== テーブルの作成
 
 ```SQL
 CREATE TABLE workers
-(worker_id char(5) not null,
+(worker_id char(5) not null, 
 worker_name varchar(50) not null,
 worker_work_from date,
-primary key (worker_id));
+primary key (worker_id));　--文の最後に必ずセミコロンを置く
 ```
+
+TIP: SQLでは「--」を使うことでコメントを入力できます
+
+
+
+
+
