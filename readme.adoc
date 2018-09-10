@@ -32,7 +32,7 @@ CREATE TABLE workers
 (worker_id char(5) not null, 
 worker_name varchar(50) not null,
 worker_work_from date,
-primary key (worker_id));　--文の最後に必ずセミコロンを置く
+primary key (worker_id));　-- 文の最後に必ずセミコロンを置く
 ```
 
 TIP: SQLでは「--」を使うことでコメントを入力できます
