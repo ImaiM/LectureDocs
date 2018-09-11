@@ -69,7 +69,4 @@ RDBへはSQLを使ってアクセスする。しかし、SQLとRDBのもつ機�
 
 そこで、別のアプリケーションを作って、それ越しにデータベースに接続する方法がとられる。
 
-[source,xml]
-----
-include::{sourcedir}/xml/DBConnect.xml
-----
+image::svg/DBConnect.svg[DBConnect]
