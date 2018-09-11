@@ -29,15 +29,30 @@ CREATE DATABASE sample;
 
 ```SQL
 CREATE TABLE workers
-(worker_id char(5) not null, 
-worker_name varchar(50) not null,
-worker_work_from date,
-primary key (worker_id));　-- 文の最後に必ずセミコロンを置く
+(worker_id CHAR(5) NOT NULL, 
+worker_name VARCHAR(50) NOT NULL,
+worker_work_from DATE,
+PRIMARY KEY (worker_id));　-- 文の最後に必ずセミコロンを置く
 ```
 
-TIP: SQLでは「--」を使うことでコメントを入力できます
+NOT NULL制約::
+NULL（ヌル）は無記入の状態を表す。つまりNOT NULL制約とは、無記入を許可しないというルールのこと。
+
+CHAR（キャラ）型::
+固定長文字列。固定長より短い文字列を入力した場合、半角スペースで埋められる。
+
+VARCHAR（バーキャラ）型::
+可変長文字列。
 
 
+TIP: SQLでは「--」を使うことでコメントを入力できる。複数行にまたがってコメントアウトしたい場合は、「/* */」を使う。
+
+=== データの登録
+
+```SQL
+BEEGIN TRANSACTION;
+
+INSERT INTO
 
 
 
