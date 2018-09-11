@@ -15,9 +15,8 @@
 - テーブルを複数定義
 - 各テーブルを関連付け
 - データの入力（マスタ、トランザクション）
-- 
 
-== 何はともあれ、データベースを作ってみよう
+== CLIでデータベースを作ってみよう
 
 === データベースの作成
 
@@ -31,7 +30,7 @@ CREATE DATABASE sample;
 CREATE TABLE workers
 (worker_id CHAR(5) NOT NULL, 
 worker_name VARCHAR(50) NOT NULL,
-worker_work_from DATE,
+work_start_date DATE,
 PRIMARY KEY (worker_id));　-- 文の最後に必ずセミコロンを置く
 ```
 
@@ -50,9 +49,27 @@ TIP: SQLでは「--」を使うことでコメントを入力できる。複数�
 === データの登録
 
 ```SQL
-BEEGIN TRANSACTION;
+BEGIN TRANSACTION;
 
-INSERT INTO
+INSERT INTO workers VALUES ('00001', '佐藤太郎', '2008-08-15');
+INSERT INTO workers VALUES ('00002', '鈴木仁', '2008-09-20');
+INSERT INTO workers VALUES ('00003', '伊藤セニョリータ', '2015-03-12');
+
+COMMIT;
+```
 
 
 
+
+== VB.NETからPostgreSQLデータベースに接続する
+
+=== データベースとアプリケーションの関係
+
+RDBへはSQLを使ってアクセスする。しかし、SQLとRDBのもつ機能だけでは複雑な処理（ビジネスロジック）に対応できない。
+
+そこで、別のアプリケーションを作って、それ越しにデータベースに接続する方法がとられる。
+
+[source,xml]
+----
+include::{sourcedir}/xml/DBConnect.xml
+----
