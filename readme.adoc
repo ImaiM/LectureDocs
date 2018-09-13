@@ -5,16 +5,18 @@
 = 第6回 応用情報技術者講義 データベース実践
 
 筆者環境::
-- Windows 10 Home
-- PostgreSQL 10.4
-- Visual Studio 2017 Community
+* Windows 10 Home
+* PostgreSQL 10.4
+* Visual Studio 2017 Community
 
 // TODO 挨拶の追加と、レクチャーの範囲を明示
 
-- データベースを作成
-- テーブルを複数定義
-- 各テーブルを関連付け
-- データの入力（マスタ、トランザクション）
+* データベースを作成
+* テーブルを複数定義
+* 各テーブルを関連付け
+* データの入力（マスタ、トランザクション）
+* ユーザーを追加
+* アプリケーションとの連携によるCRUDの実装
 
 == CLIでデータベースを作ってみよう
 
@@ -58,9 +60,6 @@ INSERT INTO workers VALUES ('00003', '伊藤セニョリータ', '2015-03-12');
 COMMIT;
 ```
 
-
-
-
 == VB.NETからPostgreSQLデータベースに接続する
 
 === データベースとアプリケーションの関係
@@ -71,6 +70,28 @@ RDBへはSQLを使ってアクセスする。しかし、SQLとRDBのもつ機�
 
 image::svg/DBConnect.svg[DBConnect]
 
+=== ロール
+
+RDBMSに用意される、テーブルや関数に対する使用等の権限の設定。
+
+ロールは複数のユーザーに割り当てることができる。
+
+. スーパーユーザーでログイン
+. ロールを追加する
+. 追加したロールでデータベースにログイン
+. SQLが実行できないことを確認する
+. 再度スーパーユーザーでログイン
+. GRANTでテーブルアクセス権限の付与
+
+```SQL
+CREATE ROLE role_sample WITH LOGIN PASSWORD 'password'; -- 2
+
+psql -U role_sample -d sample　-- 3
+
+SELECT * FROM workers; -- 4 権限がないため弾かれる
+
+GRANT SELECT ON workers TO role_sample; -- 6
+```
 
 == お役立ちリンク
 
